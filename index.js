@@ -84,6 +84,9 @@ app.post('/webhook', (req, res) => {
     	var userComment=webhook_event.message.text;
     	console.log('userComment',userComment);
     }
+    if (webhook_event.message.quick_reply){
+      var userButton = webhook_event.message.quick_reply.payload;
+    }
 	if (webhook_event.message.attachments){
 		var userImage=webhook_event.message.attachments;
 		console.log('userPhoto',userImage);
@@ -168,7 +171,7 @@ requestify.post(sendmessageurl,
   }
 })
 }
- if(userButton == 'fragile' || userComment == 'fragile' || userButton == 'hard' || userComment == 'hard' || userButton == 'ride' || userComment == 'ride'){
+ if(userButton == 'fragile' || userButton == 'hard' ||  userButton == 'ride'){
 
  
 requestify.post(sendmessageurl,
