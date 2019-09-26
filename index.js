@@ -140,8 +140,33 @@ requestify.post(sendmessageurl,
         "payload":"ferry",
       }
     ]
+  }
+})
 }
+ if(userButton == 'deliver' || userComment == 'deliver'){
 
+ 
+requestify.post(sendmessageurl,
+{        
+        "recipient":{
+    "id":senderID
+  },
+   "messaging_type": "RESPONSE",
+  "message":{
+    "text": "service type",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"fragile",
+        "payload":"fragile",
+      },{
+        "content_type":"text",
+        "title":"hard",
+        "payload":"hard",
+      }
+    ]
+  }
+  
 
       }).then(function(success){
 console.log('successful template');
