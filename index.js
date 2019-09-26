@@ -182,12 +182,12 @@ requestify.post(sendmessageurl,
     "quick_replies":[
       {
         "content_type":"text",
-        "title":"fragile",
-        "payload":"fragile",
+        "title":"kkp",
+        "payload":"kjj",
       },{
         "content_type":"text",
-        "title":"hard",
-        "payload":"hard",
+        "title":"lkklk",
+        "payload":"lkko",
       }
     ]
   }
