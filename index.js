@@ -184,10 +184,6 @@ requestify.post(sendmessageurl,
     "text": "service type",
     "quick_replies":[
       {
-        "content_type":"text",
-        "title":"kkp",
-        "payload":"kjj",
-      },{
         "content_type":"location",
       }
     ]
