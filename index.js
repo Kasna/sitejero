@@ -113,6 +113,7 @@ requestify.post(sendmessageurl,
     ]
   }
 })
+}
    if(userButton == 'customer' || userComment == 'customer'){
 
  
