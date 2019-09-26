@@ -9,7 +9,7 @@ requestify=require('requestify'),
   app = express().use(bodyParser.json()); // creates express http server 
    const sendmessageurl='https://graph.facebook.com/v4.0/me/messages_profile?access_token='+PageAccessToken
 
-  requestify.post('https://graph.facebook.com/v2.6/me/messenger_profile?access_token='+PageAccessToken,
+  requestify.post('https://graph.facebook.com/v4.0/me/messenger_profile?access_token='+PageAccessToken
   	{"get_started":{"payload":"Hi"},
   "greeting": [
     {
