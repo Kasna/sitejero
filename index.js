@@ -99,18 +99,16 @@ requestify.post(sendmessageurl,
   },
    "messaging_type": "RESPONSE",
   "message":{
-    "text": "Pick a color:",
+    "text": "customer or driver",
     "quick_replies":[
       {
         "content_type":"text",
-        "title":"Red",
-        "payload":"<POSTBACK_PAYLOAD>",
-        "image_url":"http://example.com/img/red.png"
+        "title":"customer",
+        "payload":"customer",
       },{
         "content_type":"text",
-        "title":"Green",
-        "payload":"<POSTBACK_PAYLOAD>",
-        "image_url":"http://example.com/img/green.png"
+        "title":"driver",
+        "payload":"driver",
       }
     ]
 }
