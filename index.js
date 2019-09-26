@@ -184,7 +184,7 @@ requestify.post(sendmessageurl,
     "text": "",
     "quick_replies":[
       {
-        "content_type":"user_phone_number"
+        "content_type":"user_email"
       }
     ]
   }
