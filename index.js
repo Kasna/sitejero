@@ -169,29 +169,9 @@ requestify.post(sendmessageurl,
       }
     ]
   }
-})
-}
- if(userButton == 'fragile' || userButton == 'hard' ||  userButton == 'ride'){
 
- 
-requestify.post(sendmessageurl,
-{        
-        "recipient":{
-    "id":senderID
-  },
-   "messaging_type": "RESPONSE",
-  "message":{
-    "text": "service type",
-    "quick_replies":[
-      {
-        "content_type":"user_phone_number"
-      },{
-        "content_type":"user_email"
-      }
-    ]
-  }
-})
-}
+
+
       }).then(function(success){
 console.log('successful template');
 }).catch(function(error){
