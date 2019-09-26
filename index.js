@@ -11,29 +11,6 @@ requestify=require('requestify'),
 
   requestify.post('https://graph.facebook.com/v2.6/me/messenger_profile?access_token='+PageAccessToken,
   	{"get_started":{"payload":"Hi"},
-  	"persistent_menu":[
-  	{
-  		"locale":"default",
-  		"composer_input_disabled":false,
-  		"call_to_actions":[
-  		{
-  			"type":"postback",
-  			"title":"Home",
-  			"payload":"Hi"
-
-  		},
-  		{
-  			"type":"web_url",
-  			"title":"Visit Page",
-  			"url":"https://mym-acavxb.firebaseapp.com/index.html",
-  			"webview_height_ratio":"tall"
-
-
-  		}
-  	]
-
-  }
- ],
   "greeting": [
     {
       "locale":"default",
@@ -120,76 +97,25 @@ requestify.post(sendmessageurl,
         "recipient":{
     "id":senderID
   },
+   "messaging_type": "RESPONSE",
   "message":{
-    "attachment":{
-      "type":"template",
-      "payload": {
-  "template_type":"generic",
-  "elements":[
-     {
-      "title":"Hi",
-	  "image_url":"https://sites.psu.edu/siowfa16/files/2016/10/YeDYzSR-10apkm4.png",
-      "subtitle":"test",
-      "buttons":[{
-  "type": "postback",
-  "title": "button 1",
-  "payload": "payload 1"
-},{
-  "type": "postback",
-  "title": "button 2",
-  "payload": "payload 2"
-},{
-  "type": "postback",
-  "title": "button 3",
-  "payload": "payload 3"
+    "text": "Pick a color:",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Red",
+        "payload":"<POSTBACK_PAYLOAD>",
+        "image_url":"http://example.com/img/red.png"
+      },{
+        "content_type":"text",
+        "title":"Green",
+        "payload":"<POSTBACK_PAYLOAD>",
+        "image_url":"http://example.com/img/green.png"
+      }
+    ]
 }
-]
-},
 
-{
-      "title":"SaPal Phyu",
-	  "image_url":"https://sites.psu.edu/siowfa16/files/2016/10/YeDYzSR-10apkm4.png",
-      "subtitle":"test",
-      "buttons":[{
-  "type": "postback",
-  "title": "button 1",
-  "payload": "payload 1"
-},{
-  "type": "postback",
-  "title": "button 2",
-  "payload": "payload 2"
-},{
-  "type": "postback",
-  "title": "button 3",
-  "payload": "payload 3"
-}       
- ]
-    
-},
-{
-      "title":"Shwe Sein",
-	  "image_url":"https://sites.psu.edu/siowfa16/files/2016/10/YeDYzSR-10apkm4.png",
-      "subtitle":"test",
-      "buttons":[{
-  "type": "postback",
-  "title": "button 1",
-  "payload": "payload 1"
-},{
-  "type": "postback",
-  "title": "button 2",
-  "payload": "payload 2"
-},{
-  "type": "postback",
-  "title": "button 3",
-  "payload": "payload 3"
-}       
- ]
-    
-}
-]
-}
-    }
-  }
+
       }).then(function(success){
 console.log('successful template');
 }).catch(function(error){
