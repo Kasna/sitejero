@@ -7,7 +7,7 @@ requestify=require('requestify'),
   bodyParser = require('body-parser'),
   PageAccessToken='EAAFOSGHruaUBAIxX6i8YWhnAD7mz0POodKwqb1BK2YVyNmn9a4WUuHbA40UdTMOoT00YpbehUZCzKrxf4ZCGsDJdZBmRDBlJn8drXXr2r3qnEQTLoZBcJ8GF0ij3mqdAw1FliRCnrJQ84cY929jlcVBYHckKczYfDLm1pv601PM8xATQuPmSPhr34Rmz0TgZD',
   app = express().use(bodyParser.json()); // creates express http server 
-   const sendmessageurl='https://graph.facebook.com/v4.0/me/messages?access_token='+PageAccessToken
+   const sendmessageurl='https://graph.facebook.com/v4.0/me/messages_profile?access_token='+PageAccessToken
 
   requestify.post('https://graph.facebook.com/v2.6/me/messenger_profile?access_token='+PageAccessToken,
   	{"get_started":{"payload":"Hi"},
