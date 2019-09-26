@@ -111,6 +111,34 @@ requestify.post(sendmessageurl,
         "payload":"driver",
       }
     ]
+  }
+})
+   if(userButton == 'customer' || userComment == 'customer'){
+
+ 
+requestify.post(sendmessageurl,
+{        
+        "recipient":{
+    "id":senderID
+  },
+   "messaging_type": "RESPONSE",
+  "message":{
+    "text": "service type",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"get ride",
+        "payload":"ride",
+      },{
+        "content_type":"text",
+        "title":"deliver",
+        "payload":"deliver",
+      },{
+        "content_type":"text",
+        "title":"ferry",
+        "payload":"ferry",
+      }
+    ]
 }
 
 
