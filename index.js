@@ -189,8 +189,6 @@ requestify.post(sendmessageurl,
         "payload":"kjj",
       },{
         "content_type":"location",
-        "title":"lkklk",
-        "payload":"lkko",
       }
     ]
   }
