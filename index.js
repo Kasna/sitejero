@@ -80,8 +80,8 @@ app.post('/webhook', (req, res) => {
       	var userButton=webhook_event.postback.payload;
       	console.log('reply',userButton);
     }
-    if(webhook_event.type == 'location'){
-      var userLocation = webhook_event.payload.coordinates
+    if(webhook_event.message.type == 'location'){
+      var userLocation = webhook_event.message.payload.coordinates
       console.log(userLocation)
     }
     if (webhook_event.message) {if (webhook_event.message.text) {
