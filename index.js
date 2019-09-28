@@ -183,7 +183,7 @@ requestify.post(sendmessageurl,
       "type":"template",
       "payload":{
         "template_type":"button",
-        "text":"Hi "+fbdetails[0]+"! Ready to meet your makers? 😈"
+        "text":"Hi! Ready to meet your makers? 😈"
       }
     }
   }
