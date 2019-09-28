@@ -171,31 +171,29 @@ requestify.post(sendmessageurl,
   }
 })
 }
- if(userButton == 'fragile' || userButton == 'hard' ||  userButton == 'ride'){
-
- requestify.post('https://graph.facebook.com/v4.0/me/messages?access_token='+PAT,
-      {        
+requestify.post(sendmessageurl,
+{        
         "recipient":{
     "id":senderID
   },
+   "messaging_type": "RESPONSE",
   "message":{
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"button",
-        "text":"Hi "+fbdetails[0]+"! Ready to meet your makers? 😈"
+    "text": "service type",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"fragile",
+        "payload":"fragile",
+      },{
+        "content_type":"text",
+        "title":"hard",
+        "payload":"hard",
       }
-    }
-  }
-      }).then(function(success){
-          console.log('success');
-        }).fail(function(error){
-          console.log('Welcome Fail:', error);
-        });
-      
+    ]
   }
   
   
+  }
     });
 
     // Returns a '200 OK' response to all requests
