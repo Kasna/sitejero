@@ -110,7 +110,7 @@ console.log('within webhook even message')
       console.log('lat', userLat, 'long', userLong)
     }
 
-	}}
+	}
 	 if(userButton == 'Hi' || userComment == 'Hi'){
 
  
