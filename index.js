@@ -29,7 +29,6 @@ app.get('/', (req, res)=>{
   res.send("Hello vro!");
 })
 
-/
 
 // Adds support for GET requests to our webhook
 app.get('/webhook', (req, res) => {
