@@ -98,14 +98,17 @@ console.log('within webhook even message')
 
 
     var attachment=webhook_event.message.attachments;
-    //var userAttachment = JSON.parse(attachment)
+    var userAttachment = attachment[0]
     //console.log('attachment', userAttachment);
-    console.log('arraytestattachment', attachment[0])
+    console.log('arraytestattachment', userAttachment)
     if(userAttachment.type == 'location'){
         console.log('prep to get userLocation')
-      //var uLocation = webhook_event.message.payload.coordinates
+      var userLocation = webhook_event.message.payload.coordinates
+      var userLat = userLocation.lat
+      var userLong = userLocation.long
       //var userLocation = JSON.parse(uLocation)
-      //console.log('userLocation', userLocation)
+      console.log('userLocation', userLocation)
+      console.log('lat', userLat, 'long', userLong)
     }
 
 	}}
