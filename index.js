@@ -173,7 +173,7 @@ requestify.post(sendmessageurl,
 }
  if(userButton == 'fragile' || userButton == 'hard' ||  userButton == 'ride'){
 
- requestify.post('https://graph.facebook.com/v4.0/me/messages?access_token='+PAT,
+ requestify.post('https://graph.facebook.com/v4.0/me/messages?access_token='+PageAccessToken,
       {        
         "recipient":{
     "id":senderID
