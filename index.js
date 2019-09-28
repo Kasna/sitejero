@@ -86,10 +86,11 @@ app.post('/webhook', (req, res) => {
     	console.log('userComment',userComment);
 
       if(webhook_event.message.type == 'location'){
+        console.log('prep to get userLocation')
       var userLocation = webhook_event.message.payload.coordinates
       console.log(userLocation)
     }
-      
+
     }
     if (webhook_event.message.quick_reply){
       var userButton = webhook_event.message.quick_reply.payload;
