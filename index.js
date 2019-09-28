@@ -10,7 +10,7 @@ requestify=require('requestify'),
    const sendmessageurl='https://graph.facebook.com/v4.0/me/messages?access_token='+PageAccessToken
 
   requestify.post('https://graph.facebook.com/v2.6/me/messenger_profile?access_token='+PageAccessToken,
-  	{"get_started":{"payload":"Hi"},
+    {"get_started":{"payload":"Hi"},
   "greeting": [
     {
       "locale":"default",
@@ -19,17 +19,16 @@ requestify=require('requestify'),
   ]
 
 }).then(function(success) {
-	console.log('persistent_menu.success');
-	// body...
+  console.log('persistent_menu.success');
+  // body...
 })
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 app.get('/', (req, res)=>{
-	res.send("Hello vro!");
+  res.send("Hello vro!");
 })
 
-/
 
 // Adds support for GET requests to our webhook
 app.get('/webhook', (req, res) => {
@@ -50,7 +49,7 @@ app.get('/webhook', (req, res) => {
       
       // Responds with the challenge token from the request
       console.log('WEBHOOK_VERIFIED');
-   	   res.status(200).send(challenge);
+       res.status(200).send(challenge);
     
     } else {
       // Responds with '403 Forbidden' if verify tokens do not match
@@ -77,22 +76,42 @@ app.post('/webhook', (req, res) => {
       var senderID=webhook_event.sender.id;
       console.log('senderID',senderID);
       if(webhook_event.postback){
-      	var userButton=webhook_event.postback.payload;
-      	console.log('reply',userButton);
+        var userButton=webhook_event.postback.payload;
+        console.log('reply',userButton);
     }
-    if (webhook_event.message) {if (webhook_event.message.text) {
-    	var userComment=webhook_event.message.text;
-    	console.log('userComment',userComment);
+    
+    if (webhook_event.message) {
+console.log('within webhook even message')
+      if (webhook_event.message.text) {
+      var userComment=webhook_event.message.text;
+      console.log('userComment',userComment);
+
+      
+
     }
     if (webhook_event.message.quick_reply){
       var userButton = webhook_event.message.quick_reply.payload;
     }
-	if (webhook_event.message.attachments){
-		var userImage=webhook_event.message.attachments;
-		console.log('userPhoto',userImage);
+  if (webhook_event.message.attachments){
 
-	}}
-	 if(userButton == 'Hi' || userComment == 'Hi'){
+
+
+    var attachment=webhook_event.message.attachments;
+    var userAttachment = attachment[0]
+    //console.log('attachment', userAttachment);
+    console.log('arraytestattachment', userAttachment)
+    if(userAttachment.type == 'location'){
+        console.log('prep to get userLocation')
+      var userLocation = webhook_event.message.payload.coordinates
+      var userLat = userLocation.lat
+      var userLong = userLocation.long
+      //var userLocation = JSON.parse(uLocation)
+      console.log('userLocation', userLocation)
+      console.log('lat', userLat, 'long', userLong)
+    }
+  }
+  }
+   if(userButton == 'Hi' || userComment == 'Hi'){
 
  
 requestify.post(sendmessageurl,
@@ -171,29 +190,25 @@ requestify.post(sendmessageurl,
   }
 })
 }
-requestify.post(sendmessageurl,
-{        
+ if(userButton == 'fragile' || userButton == 'hard' ||  userButton == 'ride'){
+
+ requestify.post('https://graph.facebook.com/v4.0/me/messages?access_token='+PageAccessToken,
+      {        
         "recipient":{
     "id":senderID
   },
-   "messaging_type": "RESPONSE",
   "message":{
-    "text": "service type",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"fragile",
-        "payload":"fragile",
-      },{
-        "content_type":"text",
-        "title":"hard",
-        "payload":"hard",
-      }
-    ]
+    "text":"Share your location"
+  }
+      }).then(function(success){
+          console.log('success');
+        }).fail(function(error){
+          console.log('Welcome Fail:', error);
+        });
+      
   }
   
   
-  }
     });
 
     // Returns a '200 OK' response to all requests
