@@ -29,6 +29,7 @@ app.get('/', (req, res)=>{
 	res.send("Hello vro!");
 })
 
+/
 
 // Adds support for GET requests to our webhook
 app.get('/webhook', (req, res) => {
@@ -79,38 +80,18 @@ app.post('/webhook', (req, res) => {
       	var userButton=webhook_event.postback.payload;
       	console.log('reply',userButton);
     }
-    
-    if (webhook_event.message) {
-console.log('within webhook even message')
-      if (webhook_event.message.text) {
+    if (webhook_event.message) {if (webhook_event.message.text) {
     	var userComment=webhook_event.message.text;
     	console.log('userComment',userComment);
-
-      
-
     }
     if (webhook_event.message.quick_reply){
       var userButton = webhook_event.message.quick_reply.payload;
     }
 	if (webhook_event.message.attachments){
+		var userImage=webhook_event.message.attachments;
+		console.log('userPhoto',userImage);
 
-
-
-    var attachment=webhook_event.message.attachments;
-    var userAttachment = attachment[0]
-    //console.log('attachment', userAttachment);
-    console.log('arraytestattachment', userAttachment)
-    if(userAttachment.type == 'location'){
-        console.log('prep to get userLocation')
-      var userLocation = webhook_event.message.payload.coordinates
-      var userLat = userLocation.lat
-      var userLong = userLocation.long
-      //var userLocation = JSON.parse(uLocation)
-      console.log('userLocation', userLocation)
-      console.log('lat', userLat, 'long', userLong)
-    }
-  }
-	}
+	}}
 	 if(userButton == 'Hi' || userComment == 'Hi'){
 
  
@@ -192,13 +173,19 @@ requestify.post(sendmessageurl,
 }
  if(userButton == 'fragile' || userButton == 'hard' ||  userButton == 'ride'){
 
- requestify.post('https://graph.facebook.com/v4.0/me/messages?access_token='+PageAccessToken,
+ requestify.post('https://graph.facebook.com/v4.0/me/messages?access_token='+PAT,
       {        
         "recipient":{
     "id":senderID
   },
   "message":{
-    "text":"Share your location"
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"Hi "+fbdetails[0]+"! Ready to meet your makers? 😈"
+      }
+    }
   }
       }).then(function(success){
           console.log('success');
