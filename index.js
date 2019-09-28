@@ -179,9 +179,9 @@ requestify.post(sendmessageurl,
         "recipient":{
     "id":senderID
   },
-   "messaging_type": "RESPONSE",
+   "messaging_type": "template",
   "message":{
-    "text": "Pick your start location",
+    "text": "Pick your start location"
   }
 
 
