@@ -90,6 +90,11 @@ app.post('/webhook', (req, res) => {
     var userAttachment=webhook_event.message.attachments;
     if(userAttachment[0].type == 'location'){
       console.log(userAttachment[0])
+      var userCoordinates = userAttachment[0].payload.coordinates
+      var userLat = userCoordinates.lat
+      var userLong = userCoordinates.long
+      console.log('userLat', userLat)
+      console.log('userLong', userLong)
     }
     
 
