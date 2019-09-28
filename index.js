@@ -184,7 +184,7 @@ requestify.post(sendmessageurl,
     "text": "service type",
     "quick_replies":[
       {
-        "content_type":"location",
+        "content_type":"location"
       }
     ]
   }
