@@ -81,23 +81,29 @@ app.post('/webhook', (req, res) => {
       	console.log('reply',userButton);
     }
     
-    if (webhook_event.message) {if (webhook_event.message.text) {
+    if (webhook_event.message) {
+console.log('within webhook even message')
+      if (webhook_event.message.text) {
     	var userComment=webhook_event.message.text;
     	console.log('userComment',userComment);
 
-      if(webhook_event.message.type == 'location'){
-        console.log('prep to get userLocation')
-      var userLocation = webhook_event.message.payload.coordinates
-      console.log(userLocation)
-    }
+      
 
     }
     if (webhook_event.message.quick_reply){
       var userButton = webhook_event.message.quick_reply.payload;
     }
 	if (webhook_event.message.attachments){
-		var userImage=webhook_event.message.attachments;
-		console.log('userPhoto',userImage);
+
+
+
+    var attachment=webhook_event.message.attachments;
+    console.log('attachment', attachment);
+    if(webhook_event.message.attachments.type == 'location'){
+        console.log('prep to get userLocation')
+      var userLocation = webhook_event.message.payload.coordinates
+      console.log(userLocation)
+    }
 
 	}}
 	 if(userButton == 'Hi' || userComment == 'Hi'){
