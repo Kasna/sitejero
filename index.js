@@ -173,25 +173,26 @@ requestify.post(sendmessageurl,
 }
  if(userButton == 'fragile' || userButton == 'hard' ||  userButton == 'ride'){
 
- 
-requestify.post(sendmessageurl,
-{        
+ requestify.post('https://graph.facebook.com/v4.0/me/messages?access_token='+PAT,
+      {        
         "recipient":{
     "id":senderID
   },
-   "messaging_type": "template",
   "message":{
-    "text": "Pick your start location"
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"Hi "+fbdetails[0]+"! Ready to meet your makers? 😈"
+      }
+    }
   }
-
-
-
       }).then(function(success){
-console.log('successful template');
-}).catch(function(error){
-console.log('error', error);
-  
-  });
+          console.log('success');
+        }).fail(function(error){
+          console.log('Welcome Fail:', error);
+        });
+      
   }
   
   
