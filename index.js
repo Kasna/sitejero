@@ -179,13 +179,7 @@ requestify.post(sendmessageurl,
     "id":senderID
   },
   "message":{
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"button",
-        "text":"Hi! Ready to meet your makers? 😈"
-      }
-    }
+    "text":"Share your location"
   }
       }).then(function(success){
           console.log('success');
