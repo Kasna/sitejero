@@ -174,29 +174,7 @@ requestify.post(sendmessageurl,
   }
 })
 }
-requestify.post(sendmessageurl,
-{        
-        "recipient":{
-    "id":senderID
-  },
-   "messaging_type": "RESPONSE",
-  "message":{
-    "text": "service type",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"fragile",
-        "payload":"fragile",
-      },{
-        "content_type":"text",
-        "title":"hard",
-        "payload":"hard",
-      }
-    ]
-  }
-  
-  
-  }
+
     });
 
     // Returns a '200 OK' response to all requests
